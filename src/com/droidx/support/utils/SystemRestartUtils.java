@@ -31,7 +31,7 @@ public class SystemRestartUtils {
         new AlertDialog.Builder(context)
             .setTitle(com.android.internal.R.string.systemui_restart_title)
             .setMessage(com.android.internal.R.string.systemui_restart_message)
-            .setPositiveButton(R.string.ok, (dialog, which) -> restartSystemUI(context))
+            .setPositiveButton(R.string.dlg_ok, (dialog, which) -> restartSystemUI(context))
             .setNegativeButton(R.string.cancel, null)
             .show();
     }
@@ -41,6 +41,13 @@ public class SystemRestartUtils {
         int currentValue = Settings.System.getInt(resolver, "system_ui_restart", 0);
         int newValue = (currentValue == 0) ? 1 : 0;
         Settings.System.putInt(resolver, "system_ui_restart", newValue);
+    }
+    
+    public static void reloadSystemUI(Context context) {
+        ContentResolver resolver = context.getContentResolver();
+        int currentValue = Settings.System.getInt(resolver, "system_ui_reload", 0);
+        int newValue = (currentValue == 0) ? 1 : 0;
+        Settings.System.putInt(resolver, "system_ui_reload", newValue);
     }
 }
 
