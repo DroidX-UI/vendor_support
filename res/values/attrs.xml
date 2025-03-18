@@ -46,4 +46,9 @@
         <attr name="replacesKey" format="string" />
         <attr name="minSummaryLines" format="integer" />
     </declare-styleable>
+
+     <declare-styleable name="Preference">
+        <attr name="allowDividerAbove" format="boolean" />
+        <attr name="allowDividerBelow" format="boolean" />
+    </declare-styleable>
 </resources>
