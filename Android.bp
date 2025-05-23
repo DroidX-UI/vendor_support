@@ -6,7 +6,11 @@ android_library {
         enabled: false,
     },
 
-    srcs: ["src/**/*.java"],
+    // Include both Java and Kotlin source files
+    srcs: [
+        "src/**/*.java",
+        "src/**/*.kt"
+    ],
 
     static_libs: [
         "androidx.cardview_cardview",
@@ -16,8 +20,15 @@ android_library {
         "androidx.recyclerview_recyclerview",
         "SettingsLibMainSwitchPreference",
         "SettingsLib",
+        "kotlin-stdlib", // Add Kotlin standard library
+        "kotlinx-coroutines-android"
     ],
 
-    resource_dirs: ["res"],
+    resource_dirs: ["res"]
+
+    // Add Kotlin-specific flags if necessary (usually not needed for basic setup)
+    // kotlincflags: [
+    //     "-Xjvm-default=all",
+    // ],
 
 }
